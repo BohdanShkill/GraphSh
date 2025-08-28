@@ -1,7 +1,7 @@
 # GraphSk
 
-Простий графічний редактор з інтерфейсом командного рядка (CLI).
+A simple graphics editor with a command line interface (CLI).
 
 ## Ліцензія
 
-Цей проект поширюється під ліцензією MIT. Див. файл [LICENSE](LICENSE) для деталей.
+This project is distributed under the MIT license. See the [LICENSE](LICENSE) file for details.
