@@ -1,16 +1,8 @@
 #include <iostream>
 #include <Color.h>
 
-class Color
-{
-private:
-	int r;
-	int g;
-	int b;
-
-public:
-	Color::Color()
-	 : r(0), g(0), b(0);
+	Color::Color() : r(0), g(0), b(0)
+	{}
 	Color::Color(int a, int cb, int c)
 	{
 		if (a <= 255 && a >= 0)
@@ -19,7 +11,7 @@ public:
 		}
 		else {
 			if (a > 255) r = 255;
-			else (a < 0) r = 0;
+			else if (a < 0) {r = 0;}
 		}
 
 		if (cb <= 255 && cb >= 0)
@@ -28,7 +20,7 @@ public:
 		}
 		else {
 			if (cb > 255) g = 255;
-			else (cb < 0) g = 0;
+			else if (cb < 0) {g = 0;}
 		}
 
 		if (c <= 255 && c >= 0)
@@ -37,24 +29,24 @@ public:
 		}
 		else {
 			if (c > 255) b = 255;
-			else (c < 0) b = 0;
+			else if (c < 0) {b = 0;}
 		}
 	}
 
-	int getR()
+	int Color::getR()
 	{
 		return r;
 	}
-	int getG()
+	int Color::getG()
 	{
 		return g;
 	}
-	int getB()
+	int Color::getB()
 	{
 		return b;
 	}
 
-	void setR(int value)
+	void Color::setR(int value)
 	{
 		if (value <= 255 && value >= 0)
 		{
@@ -62,11 +54,11 @@ public:
 		}
 		else {
 			if (value > 255) r = 255;
-			else (value < 0) r = 0;
+			else if (value < 0) r = 0;
 		}
 
 	}
-	void setG(int value)
+	void Color::setG(int value)
 	{
 		if (value <= 255 && value >= 0)
 		{
@@ -74,10 +66,10 @@ public:
 		}
 		else {
 			if (value > 255) g = 255;
-			else (value < 0) g = 0;
+			else if (value < 0) g = 0;
 		}
 	}
-	void setB(int value)
+	void Color::setB(int value)
 	{
 		if (value <= 255 && value >= 0)
 		{
@@ -85,17 +77,16 @@ public:
 		}
 		else {
 			if (value > 255) b = 255;
-			else (value < 0) b = 0;
+			else if (value < 0) b = 0;
 		}
 	}
 
-	void print()
+	void Color::print()
 	{
 		std::cout << r << "\t" << g << "\t" << b << std::endl;
 	}
 
-	~Color()
+	Color::~Color()
 	{
-		std::cout << "Color is die" << r << "\t" << g << "\t" << b << std::endl;
+		std::cout << "Color is die" << "\t" << r << "\t" << g << "\t" << b << std::endl;
 	}
-};

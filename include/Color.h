@@ -1,4 +1,5 @@
 #pragma once
+
 class Color
 {
 private:
@@ -7,8 +8,8 @@ private:
 	int b;
 
 public:
-	Color::Color();
-	Color::Color(int a, int b, int c);
+	Color();
+	Color(int a, int b, int c);
 
 	int getR();
 	int getG();

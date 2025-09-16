@@ -1,5 +1,5 @@
 #include <iostream>
-#include <include/Color.h>
+#include <Color.h>
 
 int main()
 {
