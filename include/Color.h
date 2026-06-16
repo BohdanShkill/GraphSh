@@ -11,15 +11,15 @@ public:
 	Color();
 	Color(int a, int b, int c);
 
-	int getR();
-	int getG();
-	int getB();
+	int getR() const;
+	int getG() const;
+	int getB() const;
 
 	void setR(int value);
 	void setG(int value);
 	void setB(int value);
 
-	void print();
+	void print() const;
 
 	~Color();
 };
