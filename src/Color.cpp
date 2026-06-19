@@ -33,15 +33,15 @@
 		}
 	}
 
-	int Color::getR()
+	int Color::getR() const
 	{
 		return r;
 	}
-	int Color::getG()
+	int Color::getG() const
 	{
 		return g;
 	}
-	int Color::getB()
+	int Color::getB() const
 	{
 		return b;
 	}
@@ -81,12 +81,11 @@
 		}
 	}
 
-	void Color::print()
+	void Color::print() const
 	{
 		std::cout << r << "\t" << g << "\t" << b << std::endl;
 	}
 
 	Color::~Color()
 	{
-		std::cout << "Color is die" << "\t" << r << "\t" << g << "\t" << b << std::endl;
 	}

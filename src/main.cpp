@@ -2,6 +2,7 @@
 #include <Color.h>
 #include <CommandParser.h>
 #include <vector>
+#include <Canvas.h>
 
 int main()
 {
@@ -15,5 +16,8 @@ int main()
 	for(std::string word : res){
 		std::cout << word << " ";
 	}
+	Color orange(45, 56, 145);
+	Canvas mousePaint(10, 10);
+	mousePaint.setPixel(9, 9, orange);
 	return 0;
 } 

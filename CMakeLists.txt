@@ -8,6 +8,7 @@ add_executable(GraphSh
 src/main.cpp
 src/Color.cpp
 src/CommandParser.cpp
+src/Canvas.cpp
 )
 
 target_include_directories(GraphSh PRIVATE include)
