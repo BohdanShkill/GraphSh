@@ -9,6 +9,7 @@ src/main.cpp
 src/Color.cpp
 src/CommandParser.cpp
 src/Canvas.cpp
+src/CommandInterface.cpp
 )
 
 target_include_directories(GraphSh PRIVATE include)
