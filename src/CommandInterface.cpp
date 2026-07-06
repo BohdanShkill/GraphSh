@@ -10,47 +10,46 @@ void CommandInterface::run(){
     bool isRunning = true;
     std::string input = "";
     std::string spaces = "";
+    std::vector<std::string> parseInput = {""};
     std::vector<std::string> res = {""};
-    std::string trash = "";
-    int choose;
+    std::string option = "";
+    int ex ;
+
+    std::cout << "Welcom" << std::endl;
 
     while(isRunning){
 
-        std::cout << "1.Text Editor" << std::endl;
-        std::cout << "0.Exit" << std::endl;
+        std::cout << "editor" << std::endl;
+        std::cout << "exit" << std::endl;
         std::cout << "Enter the option: ";
 
-        std::cin >> choose;
-        std::getline(std::cin, trash);
+        std::getline(std::cin, option);
 
-        switch (choose)
-        {
-        case 1: 
+        if(option == "editor"){
             std::cout << std::endl << '>';
             std::getline(std::cin, input);
             spaces = spacesOnly(input);
 
             if(spaces != ""){
-            res = CommandParser::parse(input);
+                parseInput = CommandParser::parse(input);
+                 for(std::string word : parseInput){
+		            std::cout << word << " ";
+	            }
 
-            for(const std::string& word : res){
-                std::cout << word << " ";
-             }
-             std::cout << std::endl;
+                std::cout << std::endl << std::endl;
+                //res = processCommand(parseInput);
             }
-            break;
+        }else if(option == "exit"){
 
-        case 0: 
             isRunning = false;
             std::cout << "Goodbye!" ;
-            break;
-        
-        default:std::cout << "Error " << std::endl;;
-            break;
-        
+        }else{
+        std::cout << "Invalid input" << std::endl;;
+        }
 
          
-        }
+            
+        
     }
 }
 
@@ -64,7 +63,7 @@ void CommandInterface::run(){
     return input;
 }*/
 
-std::string CommandInterface::spacesOnly(std::string& input1){
+std::string CommandInterface::spacesOnly(const std::string& input1){
     std::string input = input1;
 
     input.erase(
@@ -74,4 +73,26 @@ std::string CommandInterface::spacesOnly(std::string& input1){
         return input;
 }
 
-CommandInterface::~CommandInterface(){};
+/*std::vector<std::string> processCommand(const std::vector<std::string>& args){
+        std::string cmd = args[0];
+
+        if(cmd == "help"){
+            std::cout << "new - create a new canvas| (typs of input (string(new)) (int) (int))" << std::endl;
+            std::cout << "set - set pixel color" << std::endl;
+            std::cout << "help - show this help| (typs of input (string(help)))" << std::endl;
+            std::cout << "exit - quit the program" << std::endl;
+        } else if(cmd == "new"){
+            if (args.size() == 3 &&
+            std::all_of(args[1].begin(), args[1].end(), ::isdigit) &&
+            std::all_of(args[2].begin(), args[2].end(), ::isdigit)){
+                int num1 = std::stoi(args[1]);
+                int num2 = std::stoi(args[2]);
+                
+            }else{
+                std::cout << "Useage: new" << std::endl;
+                return {};
+            }
+
+        }
+    
+}*/
