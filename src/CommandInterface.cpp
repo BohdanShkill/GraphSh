@@ -108,7 +108,7 @@ void CommandInterface::processCommand(const std::vector<std::string>& args){
     return input;
 }*/
 
-std::string CommandInterface::spacesOnly(std::string& input1){
+std::string CommandInterface::spacesOnly(const std::string& input1){
     std::string input = input1;
 
     input.erase(
@@ -118,4 +118,3 @@ std::string CommandInterface::spacesOnly(std::string& input1){
         return input;
 }
 
-CommandInterface::~CommandInterface(){};

@@ -1,6 +1,11 @@
 #pragma once
 #include <Canvas.h>
 
+#include <vector>
+#include <string>
+
+class Canvas;
+
 class CommandInterface{
     private:
     Canvas* currentCanvas_;
@@ -12,8 +17,9 @@ class CommandInterface{
 
     void run();
 
-    std::string toLowerCase(std::string& input);
-    std::string spacesOnly(std::string& input1);
+    std::string toLowerCase(const std::string& input);
+    std::string spacesOnly(const std::string& input1);
+
 
     
 
