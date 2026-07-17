@@ -18,6 +18,14 @@ int Canvas::getWidth() const
     return width_;
 }
 
+void Canvas::setWidth(int width){
+    width_ = width;
+}
+
+void Canvas::setHeight(int height){
+    height_ = height;
+}
+
 void Canvas::setPixel(int x, int y, const Color& color)
 {
    if(x >= width_ || y >= height_ || x < 0 || y < 0){
