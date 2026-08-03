@@ -14,6 +14,9 @@ public:
     int getWidth() const;
     int getHeight() const;
 
+    void setWidth(int width);
+    void setHeight(int height);
+
     void setPixel (int x, int y, const Color& color);
     Color getPixel (int x, int y) const;
 

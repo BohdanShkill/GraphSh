@@ -1,4 +1,5 @@
 #pragma once
+#include <Canvas.h>
 
 #include <vector>
 #include <string>
@@ -7,11 +8,12 @@ class Canvas;
 
 class CommandInterface{
     private:
-    Canvas* curentCanvas_;
+    Canvas* currentCanvas_;
 
-    std::vector<std::string> processCommand(const std::vector<std::string>& args);
+    void processCommand(const std::vector<std::string>& args);
 
     public:
+    CommandInterface();
 
     void run();
 
@@ -19,5 +21,7 @@ class CommandInterface{
     std::string spacesOnly(const std::string& input1);
 
 
-    ~CommandInterface(){};
+    
+
+    ~CommandInterface();
 };
