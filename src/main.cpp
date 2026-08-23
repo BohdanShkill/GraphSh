@@ -17,7 +17,6 @@ int main()
 
 	std::cout << "HI";
 
-	std
 
 	// std::string input1;
 	// std::getline(std::cin, input1);
