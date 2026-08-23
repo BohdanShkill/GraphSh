@@ -17,14 +17,15 @@ int main()
 
 	std::cout << "HI";
 
-	std::string input1;
-	std::getline(std::cin, input1);
-	std::vector<std::string> res = {""};
-	res = CommandParser::parse(input1);
 
-	for(std::string word : res){
-		std::cout << word << " ";
-	}
+	// std::string input1;
+	// std::getline(std::cin, input1);
+	// std::vector<std::string> res = {""};
+	// res = CommandParser::parse(input1);
+
+	// for(std::string word : res){
+	// 	std::cout << word << " ";
+	// }
 	/*
 	Color orange(45, 56, 145);
 	Canvas mousePaint(10, 10);

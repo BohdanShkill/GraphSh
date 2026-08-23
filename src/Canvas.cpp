@@ -35,6 +35,28 @@ void Canvas::setPixel(int x, int y, const Color& color)
    pixels_[y][x] = color;
 }
 
+void Canvas::drawLine(int x1, int x2, int y1, int y2, const Color& color){
+   int dx = std::abs(x2 - x1);
+   int dy = -std::abs(y2 - y1);
+   int sx = (x1 < x2) ? 1 : -1;
+   int sy = (y1 < y2) ? 1 : -1;
+   int err = dx + dy;
+
+   while(true){
+    setPixel(x1, y1, color);
+    if(x1 == x2 && y1 == y2) break;
+    int e2 = 2 * err;
+    if(e2 >= dy){ 
+        err += dy;
+        x1 += sx;
+    }
+    if(e2 <= dx){
+        err += dx;
+        y1 += sy;
+    }   
+    }
+}
+
 Color Canvas::getPixel(int x, int y) const
 {
    if(x >= width_ || y >= height_ || x < 0 || y < 0){
@@ -42,6 +64,7 @@ Color Canvas::getPixel(int x, int y) const
    }
    return pixels_[y][x];
 }
+
 
 Canvas::~Canvas(){
     std::cout<< "Canvas is die " << width_ << "x" << height_ << std::endl;
