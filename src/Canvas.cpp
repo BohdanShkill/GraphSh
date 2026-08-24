@@ -35,7 +35,7 @@ void Canvas::setPixel(int x, int y, const Color& color)
    pixels_[y][x] = color;
 }
 
-void Canvas::drawLine(int x1, int x2, int y1, int y2, const Color& color){
+void Canvas::drawLine(int x1, int y1, int x2, int y2, const Color& color){
    int dx = std::abs(x2 - x1);
    int dy = -std::abs(y2 - y1);
    int sx = (x1 < x2) ? 1 : -1;

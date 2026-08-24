@@ -20,7 +20,7 @@ public:
     void setPixel (int x, int y, const Color& color);
     Color getPixel (int x, int y) const;
 
-    void drawLine (int x1, int x2, int y1, int y2, const Color& color);
+    void drawLine (int x1, int y1, int x2, int y2, const Color& color);
 
     ~Canvas();
 };

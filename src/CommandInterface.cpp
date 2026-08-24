@@ -44,6 +44,7 @@ void CommandInterface::processCommand(const std::vector<std::string>& args){
         if(cmd == "help"){
             std::cout << "new - create a new canvas| (typs of input (string(new)) (int Width) (int Height))" << std::endl;
             std::cout << "set - set pixel color| (typs of input (string(set)) (int R) (int G) (int B) (int Colum) (int Row))" << std::endl;
+            std::cout << "drawLine - draw a line| (typs of input (string(drawLine)) (int R) (int G) (int B) (int x1) (int y1) (int x2) (int y2))" << std::endl;
             std::cout << "help - show this help| (typs of input (string(help)))" << std::endl;
             std::cout << "exit - quit the program" << std::endl;
         } else if(cmd == "new"){
@@ -70,6 +71,7 @@ void CommandInterface::processCommand(const std::vector<std::string>& args){
             std::all_of(args[3].begin(), args[3].end(), ::isdigit) &&
             std::all_of(args[4].begin(), args[4].end(), ::isdigit) &&
             std::all_of(args[5].begin(), args[5].end(), ::isdigit)){
+
                 int r = std::stoi(args[1]);
                 int g = std::stoi(args[2]);
                 int b = std::stoi(args[3]);
@@ -88,7 +90,44 @@ void CommandInterface::processCommand(const std::vector<std::string>& args){
                 }else{
                     std::cout << "No canvas! Use 'new' first." << std::endl;
                 }
+            }else{
+                std::cout << "Useage: set" << std::endl;
             }
+        }else if(cmd == "drawLine"){
+            if (args.size() == 8 &&
+            std::all_of(args[1].begin(), args[1].end(), ::isdigit) &&
+            std::all_of(args[2].begin(), args[2].end(), ::isdigit) &&
+            std::all_of(args[3].begin(), args[3].end(), ::isdigit) &&
+            std::all_of(args[4].begin(), args[4].end(), ::isdigit) &&
+            std::all_of(args[5].begin(), args[5].end(), ::isdigit) &&
+            std::all_of(args[6].begin(), args[6].end(), ::isdigit) &&
+            std::all_of(args[7].begin(), args[7].end(), ::isdigit)){
+
+                int r = std::stoi(args[1]);
+                int g = std::stoi(args[2]);
+                int b = std::stoi(args[3]);
+                int x1 = std::stoi(args[4]);
+                int y1 = std::stoi(args[5]);
+                int x2 = std::stoi(args[6]);
+                int y2 = std::stoi(args[7]);
+
+                if (currentCanvas_ != nullptr){
+
+                    Color color(r, g ,b);
+                    currentCanvas_->drawLine(x1, y1, x2, y2, color);
+
+                    const Color& pixel = currentCanvas_->getPixel(x2, y2);
+                    std::cout << "Pixel(" << x2 << "," << y2 << ") = ("
+                              << pixel.getR() << "," << pixel.getG() << "," << pixel.getB()
+                              << ")" << std::endl;
+
+                }else{
+                    std::cout << "No canvas! Use 'new' first." << std::endl;
+                }
+            }else{
+                std::cout << "Useage: drawLine" << std::endl;
+            }
+
         }else if(cmd == "exit"){
             isRunning = false;
             std::cout<<"Goodbye!"<<std::endl;
@@ -116,5 +155,10 @@ std::string CommandInterface::spacesOnly(const std::string& input1){
             input.end()
         );
         return input;
+}
+
+CommandInterface::~CommandInterface(){
+    delete currentCanvas_;
+    currentCanvas_ = nullptr;
 }
 
